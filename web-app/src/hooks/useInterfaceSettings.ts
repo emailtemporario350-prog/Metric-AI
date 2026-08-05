@@ -13,6 +13,14 @@ export type FontSize = '14px' | '15px' | '16px' | '18px' | '20px'
 
 export const ACCENT_COLORS = [
   {
+    value: 'metric',
+    name: 'Metric',
+    label: 'Metric',
+    thumb: '#2ED9C3',
+    primary: '#2ED9C3',
+    sidebar: { light: '#E0FAF6', dark: '#0A0A0A' },
+  },
+  {
     name: 'Gray',
     value: 'gray',
     thumb: '#3F3F46',
@@ -92,7 +100,7 @@ export const ACCENT_COLORS = [
 ] as const
 
 export type AccentColorValue = (typeof ACCENT_COLORS)[number]['value']
-const DEFAULT_ACCENT_COLOR: AccentColorValue = 'gray'
+const DEFAULT_ACCENT_COLOR: AccentColorValue = 'metric'
 
 const applyAccentColorToDOM = (colorValue: string, isDark: boolean) => {
   const color = ACCENT_COLORS.find((c) => c.value === colorValue)

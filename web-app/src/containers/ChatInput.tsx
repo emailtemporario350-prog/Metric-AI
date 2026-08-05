@@ -101,6 +101,7 @@ import JanBrowserExtensionDialog from '@/containers/dialogs/JanBrowserExtensionD
 import { useJanBrowserExtension } from '@/hooks/useJanBrowserExtension'
 import { useAgentMode } from '@/hooks/useAgentMode'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
+import { MetricTierSelector } from '@/components/MetricTierSelector'
 
 type ChatInputProps = {
   className?: string
@@ -2037,6 +2038,7 @@ const ChatInput = memo(function ChatInput({
                     </DropdownMenuContent>
                   </DropdownMenu>
                 )}
+                <MetricTierSelector />
                 {/* {model?.provider === 'llamacpp' && loadingModel ? (
                   <ModelLoader />
                 ) : (
