@@ -65,7 +65,7 @@ export function LeftSidebar() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" side="top" className="w-56">
-              <DropdownMenuItem asChild><Link to={route.settingsMetric}><Settings /> Settings</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link to={route.settings.general}><Settings /> Settings</Link></DropdownMenuItem>
               <DropdownMenuItem asChild><Link to={route.settings.general}><CreditCard /> Billing & usage</Link></DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Feedback</DropdownMenuItem>

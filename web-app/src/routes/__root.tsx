@@ -22,7 +22,11 @@ import GlobalError from '@/containers/GlobalError'
 import { GlobalEventHandler } from '@/providers/GlobalEventHandler'
 import { DownloadEventListener } from '@/providers/DownloadEventListener'
 import { ServiceHubProvider } from '@/providers/ServiceHubProvider'
-import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
+import {
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
+} from '@/components/ui/sidebar'
 import { LeftSidebar } from '@/components/left-sidebar'
 import { WindowControls } from '@/components/WindowControls'
 import { WindowResizeGrips } from '@/components/WindowResizeGrips'
@@ -67,6 +71,12 @@ const AppLayout = () => {
           />
         )}
         <DialogAppUpdater />
+        <div className="fixed left-3 top-3 z-50 md:hidden">
+          <SidebarTrigger
+            aria-label="Open navigation"
+            className="border border-border bg-background/90 text-foreground shadow-sm backdrop-blur-sm"
+          />
+        </div>
         <BackendUpdater />
         <LeftSidebar />
         <SidebarInset>
