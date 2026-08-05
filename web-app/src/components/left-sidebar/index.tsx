@@ -9,8 +9,20 @@ import {
   SidebarContent,
   SidebarTrigger,
   SidebarHeader,
+  SidebarFooter,
   SidebarRail,
 } from '@/components/ui/sidebar'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
+import { CreditCard, Settings, UserRound } from 'lucide-react'
+import { Link } from '@tanstack/react-router'
+import { route } from '@/constants/routes'
 import { cn } from '@/lib/utils'
 import { useTitlebarLayout } from '@/stores/titlebar-layout-store'
 
@@ -41,6 +53,26 @@ export function LeftSidebar() {
           <NavProjects />
           <NavChats />
         </SidebarContent>
+        <SidebarFooter className="border-t border-sidebar-border/70 p-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-10 justify-start gap-3 px-2">
+                <span className="flex size-7 items-center justify-center rounded-full bg-primary/15 text-primary"><UserRound className="size-4" /></span>
+                <span className="flex flex-col items-start text-xs">
+                  <span className="font-medium">Metric workspace</span>
+                  <span className="text-muted-foreground">Free plan</span>
+                </span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" side="top" className="w-56">
+              <DropdownMenuItem asChild><Link to={route.settingsMetric}><Settings /> Settings</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link to={route.settings.general}><CreditCard /> Billing & usage</Link></DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Feedback</DropdownMenuItem>
+              <DropdownMenuItem>Sign out</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </SidebarFooter>
         <SidebarRail />
       </Sidebar>
     </div>

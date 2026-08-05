@@ -51,9 +51,9 @@ export function NavMain() {
       ),
     },
     { title: 'Projects', icon: FolderKanban, url: route.project },
-    { title: 'Artifacts', icon: LayoutGrid, url: route.hub.index },
-    { title: 'Security', icon: ShieldCheck, url: route.settings.privacy },
-    { title: 'Knowledge', icon: BookOpen, url: route.hub.index },
+    { title: 'Artifacts', icon: LayoutGrid, url: route.artifacts },
+    { title: 'Security', icon: ShieldCheck, url: route.security },
+    { title: 'Knowledge', icon: BookOpen, url: route.knowledge },
   ]
 
   return (

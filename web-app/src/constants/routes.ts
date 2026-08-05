@@ -4,6 +4,10 @@ export const route = {
   appLogs: '/logs',
   project: '/project',
   projectDetail: '/project/$projectId',
+  artifacts: '/artifacts',
+  security: '/security',
+  knowledge: '/knowledge',
+  settingsMetric: '/settings/metric',
   settings: {
     index: '/settings',
     model_providers: '/settings/providers',
