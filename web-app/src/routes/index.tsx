@@ -6,10 +6,7 @@ import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useTools } from '@/hooks/useTools'
 import { cn } from '@/lib/utils'
 
-import { useModelProvider } from '@/hooks/useModelProvider'
-import SetupScreen from '@/containers/SetupScreen'
 import { route } from '@/constants/routes'
-import { hasUsableProvider } from '@/lib/providerReadiness'
 
 type ThreadModel = {
   id: string
@@ -36,21 +33,14 @@ export const Route = createFileRoute(route.home as any)({
 
 function Index() {
   const { t } = useTranslation()
-  const { providers } = useModelProvider()
   const search = useSearch({ from: route.home as any })
   const threadModel = search.threadModel
   const { setCurrentThreadId } = useThreads()
   useTools()
 
-  const hasValidProviders = hasUsableProvider(providers)
-
   useEffect(() => {
     setCurrentThreadId(undefined)
   }, [setCurrentThreadId])
-
-  if (!hasValidProviders) {
-    return <SetupScreen />
-  }
 
   return (
     <div className="flex h-full flex-col justify-center">

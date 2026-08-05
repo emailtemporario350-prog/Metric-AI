@@ -19,8 +19,7 @@ export function InterfaceProvider() {
 
   // Apply accent color when it changes or theme changes
   useEffect(() => {
-    const effectiveAccentColor = accentColor === 'gray' ? 'metric' : accentColor
-    const color = ACCENT_COLORS.find((c) => c.value === effectiveAccentColor)
+    const color = ACCENT_COLORS.find((c) => c.value === accentColor)
     if (!color) return
 
     const root = document.documentElement

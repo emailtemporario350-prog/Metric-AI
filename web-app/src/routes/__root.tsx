@@ -12,7 +12,6 @@ import { route } from '@/constants/routes'
 import { ExtensionProvider } from '@/providers/ExtensionProvider'
 import { ToasterProvider } from '@/providers/ToasterProvider'
 import { useAnalytic } from '@/hooks/useAnalytic'
-import { useIsOnboarding } from '@/hooks/useIsOnboarding'
 import { PromptAnalytic } from '@/containers/analytics/PromptAnalytic'
 import { AnalyticProvider } from '@/providers/AnalyticProvider'
 import { useLeftPanel } from '@/hooks/useLeftPanel'
@@ -39,9 +38,6 @@ export const Route = createRootRoute({
 
 const AppLayout = () => {
   const { productAnalyticPrompt } = useAnalytic()
-  // The setup screen is the only onboarding surface: everything below that would
-  // otherwise stack on top of it is deferred until it is done.
-  const isOnboarding = useIsOnboarding()
   const {
     open: isLeftPanelOpen,
     setLeftPanel,
@@ -71,7 +67,7 @@ const AppLayout = () => {
           />
         )}
         <DialogAppUpdater />
-        {!isOnboarding && <BackendUpdater />}
+        <BackendUpdater />
         <LeftSidebar />
         <SidebarInset>
           <div className="bg-neutral-50 dark:bg-background size-full">
@@ -79,7 +75,7 @@ const AppLayout = () => {
           </div>
         </SidebarInset>
 
-        {productAnalyticPrompt && !isOnboarding && <PromptAnalytic />}
+        {productAnalyticPrompt && <PromptAnalytic />}
       </SidebarProvider>
     </div>
   )
