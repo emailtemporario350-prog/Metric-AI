@@ -10,13 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SystemMonitorRouteImport } from './routes/system-monitor'
+import { Route as SecurityRouteImport } from './routes/security'
 import { Route as LogsRouteImport } from './routes/logs'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as ArtifactsRouteImport } from './routes/artifacts'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectIndexRouteImport } from './routes/project/index'
 import { Route as HubIndexRouteImport } from './routes/hub/index'
 import { Route as ThreadsThreadIdRouteImport } from './routes/threads/$threadId'
 import { Route as SettingsWebSearchRouteImport } from './routes/settings/web-search'
 import { Route as SettingsShortcutsRouteImport } from './routes/settings/shortcuts'
 import { Route as SettingsPrivacyRouteImport } from './routes/settings/privacy'
+import { Route as SettingsMetricRouteImport } from './routes/settings/metric'
 import { Route as SettingsMcpServersRouteImport } from './routes/settings/mcp-servers'
 import { Route as SettingsLocalApiServerRouteImport } from './routes/settings/local-api-server'
 import { Route as SettingsInterfaceRouteImport } from './routes/settings/interface'
@@ -38,14 +43,34 @@ const SystemMonitorRoute = SystemMonitorRouteImport.update({
   path: '/system-monitor',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LogsRoute = LogsRouteImport.update({
   id: '/logs',
   path: '/logs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtifactsRoute = ArtifactsRouteImport.update({
+  id: '/artifacts',
+  path: '/artifacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectIndexRoute = ProjectIndexRouteImport.update({
+  id: '/project/',
+  path: '/project/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HubIndexRoute = HubIndexRouteImport.update({
@@ -71,6 +96,11 @@ const SettingsShortcutsRoute = SettingsShortcutsRouteImport.update({
 const SettingsPrivacyRoute = SettingsPrivacyRouteImport.update({
   id: '/settings/privacy',
   path: '/settings/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsMetricRoute = SettingsMetricRouteImport.update({
+  id: '/settings/metric',
+  path: '/settings/metric',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SettingsMcpServersRoute = SettingsMcpServersRouteImport.update({
@@ -152,7 +182,10 @@ const SettingsProvidersProviderNameRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/artifacts': typeof ArtifactsRoute
+  '/knowledge': typeof KnowledgeRoute
   '/logs': typeof LogsRoute
+  '/security': typeof SecurityRoute
   '/system-monitor': typeof SystemMonitorRoute
   '/hub/$modelId': typeof HubModelIdRoute
   '/local-api-server/logs': typeof LocalApiServerLogsRoute
@@ -167,17 +200,22 @@ export interface FileRoutesByFullPath {
   '/settings/interface': typeof SettingsInterfaceRoute
   '/settings/local-api-server': typeof SettingsLocalApiServerRoute
   '/settings/mcp-servers': typeof SettingsMcpServersRoute
+  '/settings/metric': typeof SettingsMetricRoute
   '/settings/privacy': typeof SettingsPrivacyRoute
   '/settings/shortcuts': typeof SettingsShortcutsRoute
   '/settings/web-search': typeof SettingsWebSearchRoute
   '/threads/$threadId': typeof ThreadsThreadIdRoute
   '/hub/': typeof HubIndexRoute
+  '/project/': typeof ProjectIndexRoute
   '/settings/providers/$providerName': typeof SettingsProvidersProviderNameRoute
   '/settings/providers/': typeof SettingsProvidersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/artifacts': typeof ArtifactsRoute
+  '/knowledge': typeof KnowledgeRoute
   '/logs': typeof LogsRoute
+  '/security': typeof SecurityRoute
   '/system-monitor': typeof SystemMonitorRoute
   '/hub/$modelId': typeof HubModelIdRoute
   '/local-api-server/logs': typeof LocalApiServerLogsRoute
@@ -192,18 +230,23 @@ export interface FileRoutesByTo {
   '/settings/interface': typeof SettingsInterfaceRoute
   '/settings/local-api-server': typeof SettingsLocalApiServerRoute
   '/settings/mcp-servers': typeof SettingsMcpServersRoute
+  '/settings/metric': typeof SettingsMetricRoute
   '/settings/privacy': typeof SettingsPrivacyRoute
   '/settings/shortcuts': typeof SettingsShortcutsRoute
   '/settings/web-search': typeof SettingsWebSearchRoute
   '/threads/$threadId': typeof ThreadsThreadIdRoute
   '/hub': typeof HubIndexRoute
+  '/project': typeof ProjectIndexRoute
   '/settings/providers/$providerName': typeof SettingsProvidersProviderNameRoute
   '/settings/providers': typeof SettingsProvidersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/artifacts': typeof ArtifactsRoute
+  '/knowledge': typeof KnowledgeRoute
   '/logs': typeof LogsRoute
+  '/security': typeof SecurityRoute
   '/system-monitor': typeof SystemMonitorRoute
   '/hub/$modelId': typeof HubModelIdRoute
   '/local-api-server/logs': typeof LocalApiServerLogsRoute
@@ -218,11 +261,13 @@ export interface FileRoutesById {
   '/settings/interface': typeof SettingsInterfaceRoute
   '/settings/local-api-server': typeof SettingsLocalApiServerRoute
   '/settings/mcp-servers': typeof SettingsMcpServersRoute
+  '/settings/metric': typeof SettingsMetricRoute
   '/settings/privacy': typeof SettingsPrivacyRoute
   '/settings/shortcuts': typeof SettingsShortcutsRoute
   '/settings/web-search': typeof SettingsWebSearchRoute
   '/threads/$threadId': typeof ThreadsThreadIdRoute
   '/hub/': typeof HubIndexRoute
+  '/project/': typeof ProjectIndexRoute
   '/settings/providers/$providerName': typeof SettingsProvidersProviderNameRoute
   '/settings/providers/': typeof SettingsProvidersIndexRoute
 }
@@ -230,7 +275,10 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/artifacts'
+    | '/knowledge'
     | '/logs'
+    | '/security'
     | '/system-monitor'
     | '/hub/$modelId'
     | '/local-api-server/logs'
@@ -245,17 +293,22 @@ export interface FileRouteTypes {
     | '/settings/interface'
     | '/settings/local-api-server'
     | '/settings/mcp-servers'
+    | '/settings/metric'
     | '/settings/privacy'
     | '/settings/shortcuts'
     | '/settings/web-search'
     | '/threads/$threadId'
     | '/hub/'
+    | '/project/'
     | '/settings/providers/$providerName'
     | '/settings/providers/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/artifacts'
+    | '/knowledge'
     | '/logs'
+    | '/security'
     | '/system-monitor'
     | '/hub/$modelId'
     | '/local-api-server/logs'
@@ -270,17 +323,22 @@ export interface FileRouteTypes {
     | '/settings/interface'
     | '/settings/local-api-server'
     | '/settings/mcp-servers'
+    | '/settings/metric'
     | '/settings/privacy'
     | '/settings/shortcuts'
     | '/settings/web-search'
     | '/threads/$threadId'
     | '/hub'
+    | '/project'
     | '/settings/providers/$providerName'
     | '/settings/providers'
   id:
     | '__root__'
     | '/'
+    | '/artifacts'
+    | '/knowledge'
     | '/logs'
+    | '/security'
     | '/system-monitor'
     | '/hub/$modelId'
     | '/local-api-server/logs'
@@ -295,18 +353,23 @@ export interface FileRouteTypes {
     | '/settings/interface'
     | '/settings/local-api-server'
     | '/settings/mcp-servers'
+    | '/settings/metric'
     | '/settings/privacy'
     | '/settings/shortcuts'
     | '/settings/web-search'
     | '/threads/$threadId'
     | '/hub/'
+    | '/project/'
     | '/settings/providers/$providerName'
     | '/settings/providers/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ArtifactsRoute: typeof ArtifactsRoute
+  KnowledgeRoute: typeof KnowledgeRoute
   LogsRoute: typeof LogsRoute
+  SecurityRoute: typeof SecurityRoute
   SystemMonitorRoute: typeof SystemMonitorRoute
   HubModelIdRoute: typeof HubModelIdRoute
   LocalApiServerLogsRoute: typeof LocalApiServerLogsRoute
@@ -321,11 +384,13 @@ export interface RootRouteChildren {
   SettingsInterfaceRoute: typeof SettingsInterfaceRoute
   SettingsLocalApiServerRoute: typeof SettingsLocalApiServerRoute
   SettingsMcpServersRoute: typeof SettingsMcpServersRoute
+  SettingsMetricRoute: typeof SettingsMetricRoute
   SettingsPrivacyRoute: typeof SettingsPrivacyRoute
   SettingsShortcutsRoute: typeof SettingsShortcutsRoute
   SettingsWebSearchRoute: typeof SettingsWebSearchRoute
   ThreadsThreadIdRoute: typeof ThreadsThreadIdRoute
   HubIndexRoute: typeof HubIndexRoute
+  ProjectIndexRoute: typeof ProjectIndexRoute
   SettingsProvidersProviderNameRoute: typeof SettingsProvidersProviderNameRoute
   SettingsProvidersIndexRoute: typeof SettingsProvidersIndexRoute
 }
@@ -339,6 +404,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SystemMonitorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/logs': {
       id: '/logs'
       path: '/logs'
@@ -346,11 +418,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LogsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/artifacts': {
+      id: '/artifacts'
+      path: '/artifacts'
+      fullPath: '/artifacts'
+      preLoaderRoute: typeof ArtifactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/project/': {
+      id: '/project/'
+      path: '/project'
+      fullPath: '/project/'
+      preLoaderRoute: typeof ProjectIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hub/': {
@@ -386,6 +479,13 @@ declare module '@tanstack/react-router' {
       path: '/settings/privacy'
       fullPath: '/settings/privacy'
       preLoaderRoute: typeof SettingsPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings/metric': {
+      id: '/settings/metric'
+      path: '/settings/metric'
+      fullPath: '/settings/metric'
+      preLoaderRoute: typeof SettingsMetricRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/settings/mcp-servers': {
@@ -498,7 +598,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ArtifactsRoute: ArtifactsRoute,
+  KnowledgeRoute: KnowledgeRoute,
   LogsRoute: LogsRoute,
+  SecurityRoute: SecurityRoute,
   SystemMonitorRoute: SystemMonitorRoute,
   HubModelIdRoute: HubModelIdRoute,
   LocalApiServerLogsRoute: LocalApiServerLogsRoute,
@@ -513,11 +616,13 @@ const rootRouteChildren: RootRouteChildren = {
   SettingsInterfaceRoute: SettingsInterfaceRoute,
   SettingsLocalApiServerRoute: SettingsLocalApiServerRoute,
   SettingsMcpServersRoute: SettingsMcpServersRoute,
+  SettingsMetricRoute: SettingsMetricRoute,
   SettingsPrivacyRoute: SettingsPrivacyRoute,
   SettingsShortcutsRoute: SettingsShortcutsRoute,
   SettingsWebSearchRoute: SettingsWebSearchRoute,
   ThreadsThreadIdRoute: ThreadsThreadIdRoute,
   HubIndexRoute: HubIndexRoute,
+  ProjectIndexRoute: ProjectIndexRoute,
   SettingsProvidersProviderNameRoute: SettingsProvidersProviderNameRoute,
   SettingsProvidersIndexRoute: SettingsProvidersIndexRoute,
 }

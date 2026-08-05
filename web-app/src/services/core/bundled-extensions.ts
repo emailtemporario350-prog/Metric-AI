@@ -23,7 +23,9 @@ type BundledEntry = {
 // Lazily imported so the extension bundles are NOT part of the service-hub
 // bootstrap graph; they load only when extensions are enumerated (after the
 // hub is ready), matching the pre-bundling load order.
-const ENTRIES: BundledEntry[] = [
+const ENTRIES: BundledEntry[] = IS_WEB_APP
+  ? []
+  : [
   {
     load: () => import('@janhq/assistant-extension'),
     name: '@janhq/assistant-extension',
@@ -69,7 +71,7 @@ const ENTRIES: BundledEntry[] = [
     version: '0.1.0',
     description: 'Vector DB integration using sqlite-vec if available with linear fallback',
   },
-]
+    ]
 
 // The MLX extension depends on @janhq/tauri-plugin-mlx-api, which only exists
 // on macOS. IS_MACOS is a build-time constant, so this import() is dead-code

@@ -47,6 +47,20 @@ export default defineConfig(({ mode }) => {
   // Load env file based on `mode` in the current working directory.
   const env = loadEnv(mode, process.cwd(), '')
 
+  const webAliases =
+    process.env.IS_WEB_APP === 'true'
+      ? {
+          '@janhq/tauri-plugin-llamacpp-api': path.resolve(
+            __dirname,
+            './src/platform/web-llamacpp.ts'
+          ),
+          '@janhq/tauri-plugin-websearch-api': path.resolve(
+            __dirname,
+            './src/platform/web-search.ts'
+          ),
+        }
+      : {}
+
   return {
     plugins: [
       TanStackRouterVite({
@@ -64,6 +78,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),
+        ...webAliases,
         '@janhq/assistant-extension': path.resolve(__dirname, '../extensions/assistant-extension/dist/index.js'),
         '@janhq/conversational-extension': path.resolve(__dirname, '../extensions/conversational-extension/dist/index.js'),
         '@janhq/download-extension': path.resolve(__dirname, '../extensions/download-extension/dist/index.js'),
@@ -91,7 +106,7 @@ export default defineConfig(({ mode }) => {
     define: {
       IS_TAURI: JSON.stringify(process.env.IS_TAURI),
       IS_DEV: JSON.stringify(process.env.IS_DEV),
-      IS_WEB_APP: JSON.stringify(false),
+      IS_WEB_APP: JSON.stringify(process.env.IS_WEB_APP === 'true'),
       IS_MACOS: JSON.stringify(
         process.env.TAURI_ENV_PLATFORM?.includes('darwin') ?? false
       ),
