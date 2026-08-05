@@ -20,7 +20,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
-import { CreditCard, Settings, UserRound } from 'lucide-react'
+import { ChevronDown, CreditCard, Settings, UserRound } from 'lucide-react'
 import { Link } from '@tanstack/react-router'
 import { route } from '@/constants/routes'
 import { cn } from '@/lib/utils'
@@ -38,7 +38,13 @@ export function LeftSidebar() {
       <Sidebar variant="floating" collapsible="offcanvas">
         <SidebarHeader className="flex px-1">
           <div className={cn("flex items-center w-full justify-between", reserveLeft && "justify-end")}>
-            {!reserveLeft && <span className="ml-2 font-medium font-studio text-primary">Metric</span>}
+            {!reserveLeft && (
+              <Button variant="ghost" className="ml-1 h-9 gap-2 px-2 font-studio text-base">
+                <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground text-xs font-semibold">M</span>
+                <span>Metric</span>
+                <ChevronDown className="size-3.5 text-muted-foreground" />
+              </Button>
+            )}
             <div className="flex items-center">
               {controlsOnLeft && (
                 <span className="mr-2 font-medium font-studio text-primary">Metric</span>
@@ -66,7 +72,9 @@ export function LeftSidebar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" side="top" className="w-56">
               <DropdownMenuItem asChild><Link to={route.settings.general}><Settings /> Settings</Link></DropdownMenuItem>
-              <DropdownMenuItem asChild><Link to={route.settings.general}><CreditCard /> Billing & usage</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link to={route.billing}><CreditCard /> Billing & usage</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link to={route.integrations}><Settings /> Integrations</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link to={route.apiKeys}><UserRound /> API Keys</Link></DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Feedback</DropdownMenuItem>
               <DropdownMenuItem>Sign out</DropdownMenuItem>

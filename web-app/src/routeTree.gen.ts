@@ -9,11 +9,28 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WikiRouteImport } from './routes/wiki'
+import { Route as UsageRouteImport } from './routes/usage'
+import { Route as TeamsRouteImport } from './routes/teams'
 import { Route as SystemMonitorRouteImport } from './routes/system-monitor'
+import { Route as SupportRouteImport } from './routes/support'
+import { Route as SessionsRouteImport } from './routes/sessions'
 import { Route as SecurityRouteImport } from './routes/security'
+import { Route as SecretsRouteImport } from './routes/secrets'
+import { Route as ReviewRouteImport } from './routes/review'
+import { Route as PlaybooksRouteImport } from './routes/playbooks'
+import { Route as MembersRouteImport } from './routes/members'
 import { Route as LogsRouteImport } from './routes/logs'
 import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as IntegrationsRouteImport } from './routes/integrations'
+import { Route as EnvironmentsRouteImport } from './routes/environments'
+import { Route as BillingRouteImport } from './routes/billing'
+import { Route as AutomationsRouteImport } from './routes/automations'
+import { Route as AuditRouteImport } from './routes/audit'
 import { Route as ArtifactsRouteImport } from './routes/artifacts'
+import { Route as ApiKeysRouteImport } from './routes/api-keys'
+import { Route as AgentsRouteImport } from './routes/agents'
+import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectIndexRouteImport } from './routes/project/index'
 import { Route as HubIndexRouteImport } from './routes/hub/index'
@@ -38,14 +55,59 @@ import { Route as HubModelIdRouteImport } from './routes/hub/$modelId'
 import { Route as SettingsProvidersIndexRouteImport } from './routes/settings/providers/index'
 import { Route as SettingsProvidersProviderNameRouteImport } from './routes/settings/providers/$providerName'
 
+const WikiRoute = WikiRouteImport.update({
+  id: '/wiki',
+  path: '/wiki',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UsageRoute = UsageRouteImport.update({
+  id: '/usage',
+  path: '/usage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamsRoute = TeamsRouteImport.update({
+  id: '/teams',
+  path: '/teams',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SystemMonitorRoute = SystemMonitorRouteImport.update({
   id: '/system-monitor',
   path: '/system-monitor',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SessionsRoute = SessionsRouteImport.update({
+  id: '/sessions',
+  path: '/sessions',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SecurityRoute = SecurityRouteImport.update({
   id: '/security',
   path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecretsRoute = SecretsRouteImport.update({
+  id: '/secrets',
+  path: '/secrets',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewRoute = ReviewRouteImport.update({
+  id: '/review',
+  path: '/review',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlaybooksRoute = PlaybooksRouteImport.update({
+  id: '/playbooks',
+  path: '/playbooks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembersRoute = MembersRouteImport.update({
+  id: '/members',
+  path: '/members',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LogsRoute = LogsRouteImport.update({
@@ -58,9 +120,49 @@ const KnowledgeRoute = KnowledgeRouteImport.update({
   path: '/knowledge',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntegrationsRoute = IntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnvironmentsRoute = EnvironmentsRouteImport.update({
+  id: '/environments',
+  path: '/environments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BillingRoute = BillingRouteImport.update({
+  id: '/billing',
+  path: '/billing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutomationsRoute = AutomationsRouteImport.update({
+  id: '/automations',
+  path: '/automations',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuditRoute = AuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArtifactsRoute = ArtifactsRouteImport.update({
   id: '/artifacts',
   path: '/artifacts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiKeysRoute = ApiKeysRouteImport.update({
+  id: '/api-keys',
+  path: '/api-keys',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AgentsRoute = AgentsRouteImport.update({
+  id: '/agents',
+  path: '/agents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -182,11 +284,28 @@ const SettingsProvidersProviderNameRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/agents': typeof AgentsRoute
+  '/api-keys': typeof ApiKeysRoute
   '/artifacts': typeof ArtifactsRoute
+  '/audit': typeof AuditRoute
+  '/automations': typeof AutomationsRoute
+  '/billing': typeof BillingRoute
+  '/environments': typeof EnvironmentsRoute
+  '/integrations': typeof IntegrationsRoute
   '/knowledge': typeof KnowledgeRoute
   '/logs': typeof LogsRoute
+  '/members': typeof MembersRoute
+  '/playbooks': typeof PlaybooksRoute
+  '/review': typeof ReviewRoute
+  '/secrets': typeof SecretsRoute
   '/security': typeof SecurityRoute
+  '/sessions': typeof SessionsRoute
+  '/support': typeof SupportRoute
   '/system-monitor': typeof SystemMonitorRoute
+  '/teams': typeof TeamsRoute
+  '/usage': typeof UsageRoute
+  '/wiki': typeof WikiRoute
   '/hub/$modelId': typeof HubModelIdRoute
   '/local-api-server/logs': typeof LocalApiServerLogsRoute
   '/project/$projectId': typeof ProjectProjectIdRoute
@@ -212,11 +331,28 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/agents': typeof AgentsRoute
+  '/api-keys': typeof ApiKeysRoute
   '/artifacts': typeof ArtifactsRoute
+  '/audit': typeof AuditRoute
+  '/automations': typeof AutomationsRoute
+  '/billing': typeof BillingRoute
+  '/environments': typeof EnvironmentsRoute
+  '/integrations': typeof IntegrationsRoute
   '/knowledge': typeof KnowledgeRoute
   '/logs': typeof LogsRoute
+  '/members': typeof MembersRoute
+  '/playbooks': typeof PlaybooksRoute
+  '/review': typeof ReviewRoute
+  '/secrets': typeof SecretsRoute
   '/security': typeof SecurityRoute
+  '/sessions': typeof SessionsRoute
+  '/support': typeof SupportRoute
   '/system-monitor': typeof SystemMonitorRoute
+  '/teams': typeof TeamsRoute
+  '/usage': typeof UsageRoute
+  '/wiki': typeof WikiRoute
   '/hub/$modelId': typeof HubModelIdRoute
   '/local-api-server/logs': typeof LocalApiServerLogsRoute
   '/project/$projectId': typeof ProjectProjectIdRoute
@@ -243,11 +379,28 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/agents': typeof AgentsRoute
+  '/api-keys': typeof ApiKeysRoute
   '/artifacts': typeof ArtifactsRoute
+  '/audit': typeof AuditRoute
+  '/automations': typeof AutomationsRoute
+  '/billing': typeof BillingRoute
+  '/environments': typeof EnvironmentsRoute
+  '/integrations': typeof IntegrationsRoute
   '/knowledge': typeof KnowledgeRoute
   '/logs': typeof LogsRoute
+  '/members': typeof MembersRoute
+  '/playbooks': typeof PlaybooksRoute
+  '/review': typeof ReviewRoute
+  '/secrets': typeof SecretsRoute
   '/security': typeof SecurityRoute
+  '/sessions': typeof SessionsRoute
+  '/support': typeof SupportRoute
   '/system-monitor': typeof SystemMonitorRoute
+  '/teams': typeof TeamsRoute
+  '/usage': typeof UsageRoute
+  '/wiki': typeof WikiRoute
   '/hub/$modelId': typeof HubModelIdRoute
   '/local-api-server/logs': typeof LocalApiServerLogsRoute
   '/project/$projectId': typeof ProjectProjectIdRoute
@@ -275,11 +428,28 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/activity'
+    | '/agents'
+    | '/api-keys'
     | '/artifacts'
+    | '/audit'
+    | '/automations'
+    | '/billing'
+    | '/environments'
+    | '/integrations'
     | '/knowledge'
     | '/logs'
+    | '/members'
+    | '/playbooks'
+    | '/review'
+    | '/secrets'
     | '/security'
+    | '/sessions'
+    | '/support'
     | '/system-monitor'
+    | '/teams'
+    | '/usage'
+    | '/wiki'
     | '/hub/$modelId'
     | '/local-api-server/logs'
     | '/project/$projectId'
@@ -305,11 +475,28 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/activity'
+    | '/agents'
+    | '/api-keys'
     | '/artifacts'
+    | '/audit'
+    | '/automations'
+    | '/billing'
+    | '/environments'
+    | '/integrations'
     | '/knowledge'
     | '/logs'
+    | '/members'
+    | '/playbooks'
+    | '/review'
+    | '/secrets'
     | '/security'
+    | '/sessions'
+    | '/support'
     | '/system-monitor'
+    | '/teams'
+    | '/usage'
+    | '/wiki'
     | '/hub/$modelId'
     | '/local-api-server/logs'
     | '/project/$projectId'
@@ -335,11 +522,28 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/activity'
+    | '/agents'
+    | '/api-keys'
     | '/artifacts'
+    | '/audit'
+    | '/automations'
+    | '/billing'
+    | '/environments'
+    | '/integrations'
     | '/knowledge'
     | '/logs'
+    | '/members'
+    | '/playbooks'
+    | '/review'
+    | '/secrets'
     | '/security'
+    | '/sessions'
+    | '/support'
     | '/system-monitor'
+    | '/teams'
+    | '/usage'
+    | '/wiki'
     | '/hub/$modelId'
     | '/local-api-server/logs'
     | '/project/$projectId'
@@ -366,11 +570,28 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActivityRoute: typeof ActivityRoute
+  AgentsRoute: typeof AgentsRoute
+  ApiKeysRoute: typeof ApiKeysRoute
   ArtifactsRoute: typeof ArtifactsRoute
+  AuditRoute: typeof AuditRoute
+  AutomationsRoute: typeof AutomationsRoute
+  BillingRoute: typeof BillingRoute
+  EnvironmentsRoute: typeof EnvironmentsRoute
+  IntegrationsRoute: typeof IntegrationsRoute
   KnowledgeRoute: typeof KnowledgeRoute
   LogsRoute: typeof LogsRoute
+  MembersRoute: typeof MembersRoute
+  PlaybooksRoute: typeof PlaybooksRoute
+  ReviewRoute: typeof ReviewRoute
+  SecretsRoute: typeof SecretsRoute
   SecurityRoute: typeof SecurityRoute
+  SessionsRoute: typeof SessionsRoute
+  SupportRoute: typeof SupportRoute
   SystemMonitorRoute: typeof SystemMonitorRoute
+  TeamsRoute: typeof TeamsRoute
+  UsageRoute: typeof UsageRoute
+  WikiRoute: typeof WikiRoute
   HubModelIdRoute: typeof HubModelIdRoute
   LocalApiServerLogsRoute: typeof LocalApiServerLogsRoute
   ProjectProjectIdRoute: typeof ProjectProjectIdRoute
@@ -397,6 +618,27 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wiki': {
+      id: '/wiki'
+      path: '/wiki'
+      fullPath: '/wiki'
+      preLoaderRoute: typeof WikiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/usage': {
+      id: '/usage'
+      path: '/usage'
+      fullPath: '/usage'
+      preLoaderRoute: typeof UsageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teams': {
+      id: '/teams'
+      path: '/teams'
+      fullPath: '/teams'
+      preLoaderRoute: typeof TeamsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/system-monitor': {
       id: '/system-monitor'
       path: '/system-monitor'
@@ -404,11 +646,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SystemMonitorRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sessions': {
+      id: '/sessions'
+      path: '/sessions'
+      fullPath: '/sessions'
+      preLoaderRoute: typeof SessionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/security': {
       id: '/security'
       path: '/security'
       fullPath: '/security'
       preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/secrets': {
+      id: '/secrets'
+      path: '/secrets'
+      fullPath: '/secrets'
+      preLoaderRoute: typeof SecretsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/review': {
+      id: '/review'
+      path: '/review'
+      fullPath: '/review'
+      preLoaderRoute: typeof ReviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playbooks': {
+      id: '/playbooks'
+      path: '/playbooks'
+      fullPath: '/playbooks'
+      preLoaderRoute: typeof PlaybooksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/members': {
+      id: '/members'
+      path: '/members'
+      fullPath: '/members'
+      preLoaderRoute: typeof MembersRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/logs': {
@@ -425,11 +709,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KnowledgeRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/integrations': {
+      id: '/integrations'
+      path: '/integrations'
+      fullPath: '/integrations'
+      preLoaderRoute: typeof IntegrationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/environments': {
+      id: '/environments'
+      path: '/environments'
+      fullPath: '/environments'
+      preLoaderRoute: typeof EnvironmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/billing': {
+      id: '/billing'
+      path: '/billing'
+      fullPath: '/billing'
+      preLoaderRoute: typeof BillingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/automations': {
+      id: '/automations'
+      path: '/automations'
+      fullPath: '/automations'
+      preLoaderRoute: typeof AutomationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/audit': {
+      id: '/audit'
+      path: '/audit'
+      fullPath: '/audit'
+      preLoaderRoute: typeof AuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/artifacts': {
       id: '/artifacts'
       path: '/artifacts'
       fullPath: '/artifacts'
       preLoaderRoute: typeof ArtifactsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api-keys': {
+      id: '/api-keys'
+      path: '/api-keys'
+      fullPath: '/api-keys'
+      preLoaderRoute: typeof ApiKeysRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/agents': {
+      id: '/agents'
+      path: '/agents'
+      fullPath: '/agents'
+      preLoaderRoute: typeof AgentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -598,11 +938,28 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActivityRoute: ActivityRoute,
+  AgentsRoute: AgentsRoute,
+  ApiKeysRoute: ApiKeysRoute,
   ArtifactsRoute: ArtifactsRoute,
+  AuditRoute: AuditRoute,
+  AutomationsRoute: AutomationsRoute,
+  BillingRoute: BillingRoute,
+  EnvironmentsRoute: EnvironmentsRoute,
+  IntegrationsRoute: IntegrationsRoute,
   KnowledgeRoute: KnowledgeRoute,
   LogsRoute: LogsRoute,
+  MembersRoute: MembersRoute,
+  PlaybooksRoute: PlaybooksRoute,
+  ReviewRoute: ReviewRoute,
+  SecretsRoute: SecretsRoute,
   SecurityRoute: SecurityRoute,
+  SessionsRoute: SessionsRoute,
+  SupportRoute: SupportRoute,
   SystemMonitorRoute: SystemMonitorRoute,
+  TeamsRoute: TeamsRoute,
+  UsageRoute: UsageRoute,
+  WikiRoute: WikiRoute,
   HubModelIdRoute: HubModelIdRoute,
   LocalApiServerLogsRoute: LocalApiServerLogsRoute,
   ProjectProjectIdRoute: ProjectProjectIdRoute,

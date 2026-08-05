@@ -116,7 +116,27 @@ export function MetricSettingsPage() {
   const [section, setSection] = useState<(typeof sections)[number]['id']>('billing')
   return (
     <div className="h-full overflow-y-auto">
-      <div className="mx-auto flex min-h-full w-full max-w-6xl gap-6 p-6 pb-12 lg:p-10">
+      <div className="mx-auto flex min-h-full w-full max-w-6xl flex-col gap-5 p-4 pb-12 sm:p-6 lg:p-10">
+        <div className="flex gap-2 overflow-x-auto pb-1 md:hidden">
+          {sections.map((item) => {
+            const Icon = item.icon
+            return (
+              <button
+                key={item.id}
+                onClick={() => setSection(item.id)}
+                className={`flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-sm transition-colors ${
+                  section === item.id
+                    ? 'border-primary/40 bg-primary/10 text-primary'
+                    : 'border-border/70 text-muted-foreground'
+                }`}
+              >
+                <Icon className="size-4" />
+                {item.label}
+              </button>
+            )
+          })}
+        </div>
+        <div className="flex min-h-full w-full gap-6">
         <aside className="hidden w-56 shrink-0 space-y-1 md:block">
           <p className="mb-3 text-xs font-medium uppercase tracking-[0.18em] text-primary">Organization</p>
           {sections.map((item) => {
@@ -128,6 +148,7 @@ export function MetricSettingsPage() {
           <div><p className="mb-2 text-xs font-medium uppercase tracking-[0.18em] text-primary">Settings</p><h1 className="font-studio text-3xl font-semibold tracking-tight">Metric organization</h1><p className="mt-2 text-sm text-muted-foreground">Billing, access, integrations and controls for your autonomous engineering workspace.</p></div>
           <SettingsDetail section={section} />
         </main>
+        </div>
       </div>
     </div>
   )

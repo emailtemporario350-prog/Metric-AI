@@ -1,10 +1,13 @@
 import React from 'react'
 import {
+  Bot,
   BookOpen,
-  FolderKanban,
-  LayoutGrid,
+  Clock3,
   Plus,
+  Search,
   ShieldCheck,
+  GitPullRequest,
+  Workflow,
 } from 'lucide-react'
 import { Link, useNavigate } from '@tanstack/react-router'
 
@@ -50,10 +53,13 @@ export function NavMain() {
         </KbdGroup>
       ),
     },
-    { title: 'Projects', icon: FolderKanban, url: route.project },
-    { title: 'Artifacts', icon: LayoutGrid, url: route.artifacts },
+    { title: 'Automations', icon: Workflow, url: route.automations },
     { title: 'Security', icon: ShieldCheck, url: route.security },
-    { title: 'Knowledge', icon: BookOpen, url: route.knowledge },
+    { title: 'Review', icon: GitPullRequest, url: route.review },
+    { title: 'Wiki', icon: BookOpen, url: route.wiki },
+    { title: 'Agents', icon: Bot, url: route.agents },
+    { title: 'Activity', icon: Clock3, url: route.activity },
+    { title: 'Search', icon: Search, url: route.sessions },
   ]
 
   return (
