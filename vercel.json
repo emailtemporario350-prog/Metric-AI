@@ -1,0 +1,6 @@
+{
+  "framework": null,
+  "installCommand": "corepack yarn install --immutable",
+  "buildCommand": "corepack yarn workspace @janhq/core build && IS_WEB_APP=true corepack yarn workspace @janhq/web-app exec vite build",
+  "outputDirectory": "web-app/dist"
+}

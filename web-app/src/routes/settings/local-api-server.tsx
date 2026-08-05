@@ -414,7 +414,7 @@ function LocalAPIServerContent() {
           </Popover>
         </div>
       </HeaderPage>
-      <div className="flex h-[calc(100%-60px)]">
+      <div className="flex h-[calc(100%-60px)] flex-col md:flex-row">
         <SettingsMenu />
         <div className="flex-1 flex flex-col min-h-0 pl-0">
           <div className="flex-1 overflow-y-auto p-4 pt-0">

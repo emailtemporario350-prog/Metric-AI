@@ -13,10 +13,18 @@ export type FontSize = '14px' | '15px' | '16px' | '18px' | '20px'
 
 export const ACCENT_COLORS = [
   {
+    value: 'metric',
+    name: 'Metric',
+    label: 'Metric',
+    thumb: '#A1A1AA',
+    primary: '#A1A1AA',
+    sidebar: { light: '#F4F4F5', dark: '#0F0F10' },
+  },
+  {
     name: 'Gray',
     value: 'gray',
     thumb: '#3F3F46',
-    primary: '#f17455',
+    primary: '#A1A1AA',
     sidebar: { light: '#f1f1f1', dark: '#171717' },
   },
   {

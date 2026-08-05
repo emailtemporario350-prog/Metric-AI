@@ -230,8 +230,8 @@ const SettingsMenu = () => {
 
   return (
     <>
-      <div className="h-full w-58 shrink-0 px-1.5 flex overflow-auto">
-        <div className="flex flex-col gap-1 w-full font-medium">
+      <div className="h-auto w-full shrink-0 overflow-x-auto overflow-y-hidden px-1.5 py-1 md:h-full md:w-58 md:overflow-auto">
+        <div className="flex w-max flex-row gap-1 font-medium md:w-full md:flex-col">
           {/* Core settings */}
           {coreSettings.map((menu) => (
             <div key={menu.title}>
@@ -248,14 +248,14 @@ const SettingsMenu = () => {
           ))}
 
           {/* Integrations section */}
-          <div className="mt-4">
+          <div className="mt-1 shrink-0 md:mt-4">
             <span className="px-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               {t('common:integrations')}
               <span className="text-[11px] capitalize ml-2 font-medium px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-600 dark:text-blue-400">
                 {t('common:experimental')}
               </span>
             </span>
-            <div className="mt-1 flex flex-col gap-1">
+            <div className="mt-1 flex flex-row gap-1 md:flex-col">
               {integrationSettings.map((menu) => (
                 <Link
                   key={menu.title}
@@ -270,7 +270,7 @@ const SettingsMenu = () => {
           </div>
 
           {/* Model Providers section */}
-          <div className="mt-4">
+          <div className="mt-1 shrink-0 md:mt-4">
             <div className="flex items-center justify-between pl-2">
               <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 {t('common:modelProviders')}
