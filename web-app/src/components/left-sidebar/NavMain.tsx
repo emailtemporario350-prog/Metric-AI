@@ -3,11 +3,16 @@ import {
   Bot,
   BookOpen,
   Clock3,
+  Command,
+  Cloud,
+  FolderGit2,
+  Gauge,
   Plus,
   Search,
   ShieldCheck,
   GitPullRequest,
   Workflow,
+  Wrench,
 } from 'lucide-react'
 import { Link, useNavigate } from '@tanstack/react-router'
 
@@ -53,12 +58,17 @@ export function NavMain() {
         </KbdGroup>
       ),
     },
+    { title: 'Command Center', icon: Command, url: route.commandCenter },
+    { title: 'Sessions', icon: Clock3, url: route.sessions },
+    { title: 'Projects', icon: FolderGit2, url: route.project },
+    { title: 'Workspace', icon: Wrench, url: route.workspace },
     { title: 'Automations', icon: Workflow, url: route.automations },
+    { title: 'Artifacts', icon: Cloud, url: route.artifacts },
     { title: 'Security', icon: ShieldCheck, url: route.security },
     { title: 'Review', icon: GitPullRequest, url: route.review },
-    { title: 'Wiki', icon: BookOpen, url: route.wiki },
+    { title: 'Study', icon: BookOpen, url: route.wiki },
     { title: 'Agents', icon: Bot, url: route.agents },
-    { title: 'Activity', icon: Clock3, url: route.activity },
+    { title: 'Activity', icon: Gauge, url: route.activity },
     { title: 'Search', icon: Search, url: route.sessions },
   ]
 

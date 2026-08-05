@@ -10,11 +10,11 @@ import {
 import { Button } from '@/components/ui/button'
 
 const METRIC_TIERS = [
-  { id: 'lite', label: 'Metric Lite', description: 'Fast, low-cost tasks' },
-  { id: 'swarm', label: 'Metric Swarm', description: 'Parallel execution' },
-  { id: 'normal', label: 'Metric Normal', description: 'Everyday balance' },
-  { id: 'max', label: 'Metric Max', description: 'Deep architecture work' },
-  { id: 'ultra', label: 'Metric Ultra', description: 'Critical end-to-end work' },
+  { id: 'lite', label: 'Cidby Lite', description: 'Fast, low-cost tasks' },
+  { id: 'swarm', label: 'Cidby Swarm', description: 'Parallel execution' },
+  { id: 'normal', label: 'Cidby Core', description: 'Everyday balance' },
+  { id: 'max', label: 'Cidby Deep', description: 'Deep architecture work' },
+  { id: 'ultra', label: 'Cidby Apex', description: 'Critical end-to-end work' },
 ] as const
 
 type MetricTier = (typeof METRIC_TIERS)[number]['id']
@@ -30,7 +30,7 @@ export function MetricTierSelector() {
           variant="ghost"
           size="sm"
           className="mb-1 h-7 gap-1.5 rounded-full px-2 text-xs font-medium"
-          aria-label="Select Metric model"
+          aria-label="Select Cidby model"
         >
           <Sparkles className="size-3.5 text-primary" />
           <span>{selectedTier.label}</span>

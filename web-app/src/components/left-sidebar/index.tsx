@@ -41,13 +41,13 @@ export function LeftSidebar() {
             {!reserveLeft && (
               <Button variant="ghost" className="ml-1 h-9 gap-2 px-2 font-studio text-base">
                 <span className="flex size-6 items-center justify-center rounded-md bg-primary text-primary-foreground text-xs font-semibold">M</span>
-                <span>Metric</span>
+                <span>Cidby</span>
                 <ChevronDown className="size-3.5 text-muted-foreground" />
               </Button>
             )}
             <div className="flex items-center">
               {controlsOnLeft && (
-                <span className="mr-2 font-medium font-studio text-primary">Metric</span>
+                <span className="mr-2 font-medium font-studio text-primary">Cidby</span>
               )}
               {isLeftPanelOpen && <DownloadManagement />}
               <SidebarTrigger className="text-muted-foreground rounded-full hover:bg-sidebar-foreground/8! -mt-0.5 relative z-50 ml-0.5" />
@@ -65,7 +65,7 @@ export function LeftSidebar() {
               <Button variant="ghost" className="h-10 justify-start gap-3 px-2">
                 <span className="flex size-7 items-center justify-center rounded-full bg-primary/15 text-primary"><UserRound className="size-4" /></span>
                 <span className="flex flex-col items-start text-xs">
-                  <span className="font-medium">Metric workspace</span>
+                  <span className="font-medium">Cidby workspace</span>
                   <span className="text-muted-foreground">Free plan</span>
                 </span>
               </Button>

@@ -93,71 +93,71 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #0f0f10;
-  --foreground: #f5f5f5;
-  --card: #18181b;
-  --card-foreground: #f5f5f5;
-  --popover: #18181b;
-  --popover-foreground: #f5f5f5;
-  --primary: #a1a1aa;
-  --primary-foreground: #18181b;
-  --secondary: #27272a;
-  --secondary-foreground: #f5f5f5;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --accent: #27272a;
-  --accent-foreground: #f5f5f5;
+  --background: #111113;
+  --foreground: #f5f1eb;
+  --card: #19191d;
+  --card-foreground: #f5f1eb;
+  --popover: #1d1d22;
+  --popover-foreground: #f5f1eb;
+  --primary: #ff7657;
+  --primary-foreground: #241113;
+  --secondary: #25252b;
+  --secondary-foreground: #f5f1eb;
+  --muted: #25252b;
+  --muted-foreground: #a9a3a0;
+  --accent: #302a31;
+  --accent-foreground: #f5f1eb;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #a1a1aa;
+  --border: #343238;
+  --input: #2a292f;
+  --ring: #ff7657;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: #0f0f10;
-  --sidebar-foreground: #f5f5f5;
-  --sidebar-primary: #a1a1aa;
-  --sidebar-primary-foreground: #18181b;
-  --sidebar-accent: #18181b;
-  --sidebar-accent-foreground: #f5f5f5;
-  --sidebar-border: #27272a;
-  --sidebar-ring: #a1a1aa;
+  --sidebar: #151518;
+  --sidebar-foreground: #f5f1eb;
+  --sidebar-primary: #ff7657;
+  --sidebar-primary-foreground: #241113;
+  --sidebar-accent: #26232a;
+  --sidebar-accent-foreground: #f5f1eb;
+  --sidebar-border: #302e35;
+  --sidebar-ring: #ff7657;
 }
 
 .dark {
-  --background: #0f0f10;
-  --foreground: #f5f5f5;
-  --card: #18181b;
-  --card-foreground: #f5f5f5;
-  --popover: #18181b;
-  --popover-foreground: #f5f5f5;
-  --primary: #a1a1aa;
-  --primary-foreground: #18181b;
-  --secondary: #27272a;
-  --secondary-foreground: #f5f5f5;
-  --muted: #27272a;
-  --muted-foreground: #a1a1aa;
-  --accent: #27272a;
-  --accent-foreground: #f5f5f5;
+  --background: #111113;
+  --foreground: #f5f1eb;
+  --card: #19191d;
+  --card-foreground: #f5f1eb;
+  --popover: #1d1d22;
+  --popover-foreground: #f5f1eb;
+  --primary: #ff7657;
+  --primary-foreground: #241113;
+  --secondary: #25252b;
+  --secondary-foreground: #f5f1eb;
+  --muted: #25252b;
+  --muted-foreground: #a9a3a0;
+  --accent: #302a31;
+  --accent-foreground: #f5f1eb;
   --destructive: oklch(0.704 0.191 22.216);
-  --border: #27272a;
-  --input: #27272a;
-  --ring: #a1a1aa;
+  --border: #343238;
+  --input: #2a292f;
+  --ring: #ff7657;
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: #0f0f10;
-  --sidebar-foreground: #f5f5f5;
-  --sidebar-primary: #a1a1aa;
-  --sidebar-primary-foreground: #18181b;
-  --sidebar-accent: #18181b;
-  --sidebar-accent-foreground: #f5f5f5;
-  --sidebar-border: #27272a;
-  --sidebar-ring: #a1a1aa;
+  --sidebar: #151518;
+  --sidebar-foreground: #f5f1eb;
+  --sidebar-primary: #ff7657;
+  --sidebar-primary-foreground: #241113;
+  --sidebar-accent: #26232a;
+  --sidebar-accent-foreground: #f5f1eb;
+  --sidebar-border: #302e35;
+  --sidebar-ring: #ff7657;
 }
 
 @layer base {
@@ -248,6 +248,28 @@
     scrollbar-color: oklch(0.985 0 0 / 20%) transparent;
   }
 
+}
+
+@layer components {
+  .cidby-workbench {
+    background:
+      radial-gradient(circle at 50% 8%, color-mix(in oklab, var(--primary) 10%, transparent), transparent 34rem),
+      linear-gradient(180deg, color-mix(in oklab, var(--background) 90%, #241c1f), var(--background));
+  }
+
+  .cidby-command-grid {
+    background-image:
+      linear-gradient(color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(to bottom, black, transparent 80%);
+  }
+
+  .cidby-composer {
+    box-shadow:
+      0 0 0 1px color-mix(in oklab, var(--primary) 18%, transparent),
+      0 24px 70px color-mix(in oklab, #000 42%, transparent);
+  }
 }
 
 @layer base {

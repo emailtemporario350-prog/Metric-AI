@@ -19,7 +19,7 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from '@/components/ui/dropdown-menu'
-import { ArrowRight, PlusIcon } from 'lucide-react'
+import { ArrowRight, Github, PlusIcon } from 'lucide-react'
 import {
   IconPhoto,
   IconMusic,
@@ -1727,11 +1727,11 @@ const ChatInput = memo(function ChatInput({
   const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
 
   return (
-    <div className="relative">
+    <div className="relative w-full" data-cidby-composer>
       <div className="relative">
         <div
           className={cn(
-            'relative overflow-hidden p-0.5 rounded-3xl'
+            'relative overflow-hidden rounded-[1.5rem] p-0.5'
           )}
         >
           {isStreaming && (
@@ -1748,9 +1748,9 @@ const ChatInput = memo(function ChatInput({
 
           <div
             className={cn(
-              'relative z-20 px-0 pb-10 border rounded-3xl border-input bg-white dark:bg-input/30',
-              isFocused && 'ring-1 ring-ring/50',
-              isDragOver && 'ring-2 ring-ring/50 border-primary'
+              'relative z-20 rounded-[1.4rem] border border-border/70 bg-background/60 px-0 pb-12 shadow-inner backdrop-blur-xl',
+              isFocused && 'ring-1 ring-primary/60',
+              isDragOver && 'ring-2 ring-primary/60 border-primary'
             )}
             data-drop-zone={dropAcceptsAnything ? 'true' : undefined}
             onDragEnter={dropAcceptsAnything ? handleDragEnter : undefined}
@@ -1946,7 +1946,7 @@ const ChatInput = memo(function ChatInput({
               data-gramm_editor={spellCheckChatInput}
               data-gramm_grammarly={spellCheckChatInput}
               className={cn(
-                'bg-transparent pt-4 w-full shrink-0 border-none resize-none outline-0 px-4',
+                'bg-transparent pt-5 w-full shrink-0 border-none resize-none px-5 text-[15px] leading-6 outline-0 placeholder:text-muted-foreground/70',
                 rows < maxRows && 'scrollbar-hide',
                 className
               )}
@@ -1954,7 +1954,7 @@ const ChatInput = memo(function ChatInput({
           </div>
         </div>
 
-        <div className="absolute z-20 bg-transparent bottom-0 w-full p-2 ">
+        <div className="absolute bottom-0 z-20 w-full border-t border-border/40 bg-background/35 p-2 backdrop-blur-sm">
           <div className="flex justify-between items-center w-full">
             <div className="px-1 flex items-center gap-1 flex-1 min-w-0">
               <div
@@ -2037,6 +2037,22 @@ const ChatInput = memo(function ChatInput({
                     </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
+                )}
+                {!effectiveAgentMode && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="mb-1 h-8 gap-2 rounded-lg px-2 text-xs text-muted-foreground hover:bg-primary/10 hover:text-foreground"
+                    onClick={() =>
+                      toast.info('GitHub context ready', {
+                        description:
+                          'Choose a repository or worktree from the project context above.',
+                      })
+                    }
+                  >
+                    <Github className="size-3.5" />
+                    <span className="hidden sm:inline">GitHub</span>
+                  </Button>
                 )}
                 <MetricTierSelector />
                 {/* {model?.provider === 'llamacpp' && loadingModel ? (
@@ -2578,7 +2594,7 @@ const ChatInput = memo(function ChatInput({
                     <Button
                       variant="destructive"
                       size="icon-sm"
-                      className="rounded-full mr-1 mb-1"
+                      className="mr-1 mb-1 rounded-xl bg-destructive/15 text-destructive hover:bg-destructive/25"
                       onClick={() => {
                         if (!currentThreadId) return
                         const queue = useMessageQueue.getState().getQueue(currentThreadId)
@@ -2603,7 +2619,7 @@ const ChatInput = memo(function ChatInput({
                   disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
                   data-test-id="send-message-button"
                   onClick={() => handleSendMessage(prompt)}
-                  className="rounded-full mr-1 mb-1"
+                  className="mr-1 mb-1 rounded-xl bg-primary text-primary-foreground shadow-[0_0_18px_color-mix(in_oklab,var(--primary)_30%,transparent)] hover:bg-primary/90"
                 >
                   <ArrowRight className="text-primary-fg" />
                 </Button>
