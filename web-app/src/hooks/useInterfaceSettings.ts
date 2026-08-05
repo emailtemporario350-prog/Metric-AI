@@ -100,7 +100,7 @@ export const ACCENT_COLORS = [
 ] as const
 
 export type AccentColorValue = (typeof ACCENT_COLORS)[number]['value']
-const DEFAULT_ACCENT_COLOR: AccentColorValue = 'metric'
+const DEFAULT_ACCENT_COLOR: AccentColorValue = 'gray'
 
 const applyAccentColorToDOM = (colorValue: string, isDark: boolean) => {
   const color = ACCENT_COLORS.find((c) => c.value === colorValue)
